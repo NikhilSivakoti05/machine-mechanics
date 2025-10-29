@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* TECH SG Brand Colors - All HSL */
+    --background: 0 0% 100%;
+    --foreground: 220 39% 11%;
+    
+    /* Deep Navy - Primary Brand Color */
+    --primary: 214 76% 20%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Electric Cyan - Accent & Interactive */
+    --accent: 188 100% 50%;
+    --accent-foreground: 220 39% 11%;
+    
+    /* Molten Gold - Highlight & Premium */
+    --gold: 32 46% 65%;
+    --gold-foreground: 220 39% 11%;
+    
+    /* Charcoal Black - Secondary */
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Steel Gray - Supporting */
+    --muted: 220 13% 46%;
+    --muted-foreground: 220 13% 90%;
+    
+    /* Warm Platinum - Backgrounds */
+    --card: 30 14% 90%;
+    --card-foreground: 220 39% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 39% 11%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 13% 85%;
+    --input: 220 13% 85%;
+    --ring: 188 100% 50%;
+    
+    --radius: 0.25rem;
+    
+    /* Custom Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(214 76% 20%) 0%, hsl(220 39% 11%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(30 14% 90%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(188 100% 50%) 0%, hsl(188 100% 40%) 100%);
+    
+    --shadow-elegant: 0 10px 30px -10px hsl(214 76% 20% / 0.3);
+    --shadow-glow: 0 0 30px hsl(188 100% 50% / 0.4);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 39% 11%;
+    --foreground: 0 0% 100%;
+    
+    --primary: 188 100% 50%;
+    --primary-foreground: 220 39% 11%;
+    
+    --accent: 188 100% 50%;
+    --accent-foreground: 220 39% 11%;
+    
+    --secondary: 214 76% 20%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 220 13% 25%;
+    --muted-foreground: 220 13% 70%;
+    
+    --card: 220 50% 25%;
+    --card-foreground: 0 0% 100%;
+    
+    --border: 220 13% 25%;
+    --input: 220 13% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-primary;
+  }
+  
+  .glow-accent {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift {
+    @apply transition-smooth hover:scale-105 hover:shadow-xl;
+  }
+}
